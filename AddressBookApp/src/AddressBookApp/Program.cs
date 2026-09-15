@@ -11,14 +11,17 @@ namespace AddressBookApp.src.AddressBookApp
             //Console.WriteLine(contact1);
 
             AddressBook addressBook = new AddressBook();
+            AddressBookMain manager = new AddressBookMain();
+            manager.AddAddressBook(addressBook);
 
             while(true)
             {
-                Console.WriteLine("--Address Book App");
+                Console.WriteLine("===== Address Book Menu =====");
                 Console.WriteLine("1. Add Contact");
                 Console.WriteLine("2. Show All Contacts.");
                 Console.WriteLine("3. Edit Contact");
                 Console.WriteLine("4. Delete Contact");
+                Console.WriteLine("5. Total Contact Count");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -99,6 +102,12 @@ namespace AddressBookApp.src.AddressBookApp
                             addressBook.DeleteContact(firstName, lastName);
                         }
                          break;
+
+                    case "5":
+                        {
+                            Console.WriteLine($"Total contacts in all address books: {manager.GetTotalContacts()}");
+                        }
+                        break;
 
                     case "0":
                         return;
