@@ -8,7 +8,7 @@ namespace AddressBookApp.Services
 {
     public class AddressBook
     {
-        private List<Contact> contacts = new();
+        private readonly List<Contact> contacts = new();
         public List<Contact> Contacts { get { return contacts; } }
         public void AddContact(Contact c)
         {
@@ -17,23 +17,33 @@ namespace AddressBookApp.Services
             Console.WriteLine("Contact added successfully");
         }
 
-        public void EditContact()
+        public void EditContact(string fn, string ln)
         {
-            Console.WriteLine("Enter first name: ");
-            string fn = Console.ReadLine();
-
-            Console.WriteLine("Enter last name: ");
-            string ln = Console.ReadLine();
-
-
             Contact foundContact = Contacts.FirstOrDefault(c => c.FirstName == fn && c.LastName == ln);
 
             if(foundContact == null)
             {
                 Console.WriteLine("Contact not found");
+                return;
             }
-            else
-            {
+           
+                Console.WriteLine("Enter new first name(or press Enter to keep): ");
+                string firstName = Console.ReadLine();
+                if(!string.IsNullOrWhiteSpace(firstName))
+                {
+                    ContactValidator.ValidName(firstName);
+                    foundContact.FirstName = firstName;
+                }
+
+                Console.WriteLine("Enter new last name(or press Enter to keep): ");
+                string lastName = Console.ReadLine();
+                if(!string.IsNullOrWhiteSpace(lastName))
+                {
+                    ContactValidator.ValidName(lastName);
+                    foundContact.LastName = lastName;
+                }
+
+
                 Console.WriteLine("Enter new address (or press Enter to keep): ");
                 string address = Console.ReadLine();
 
@@ -88,17 +98,30 @@ namespace AddressBookApp.Services
                     foundContact.Email = email;
                 }
                 Console.WriteLine("Contact updated.");
+        }
+
+        public void DeleteContact(string fn, string ln)
+        {
+            Contact foundContact = Contacts.FirstOrDefault(c => c.FirstName == fn && c.LastName == ln);
+            
+            if(foundContact == null)
+            {
+                Console.WriteLine("Contact not found");
+                return;
             }
+
+            Contacts.Remove(foundContact);
+            Console.WriteLine("Contact deleted");
         }
         
         public void PrintAll()
         {
-            if (contacts.Count == 0)
+            if (Contacts.Count == 0)
             {
                 Console.WriteLine("No contacts found.");
                 return;
             }
-            foreach (Contact c in contacts)
+            foreach (Contact c in Contacts)
             {
                 Console.WriteLine(c);
             }

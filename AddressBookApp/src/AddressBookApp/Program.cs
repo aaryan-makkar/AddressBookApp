@@ -18,6 +18,7 @@ namespace AddressBookApp.src.AddressBookApp
                 Console.WriteLine("1. Add Contact");
                 Console.WriteLine("2. Show All Contacts.");
                 Console.WriteLine("3. Edit Contact");
+                Console.WriteLine("4. Delete Contact");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -75,8 +76,29 @@ namespace AddressBookApp.src.AddressBookApp
                         break;
 
                     case "3":
-                        addressBook.EditContact();
+                        try
+                        {
+                            Console.WriteLine("Enter First Name: ");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine("Enter Last Name: ");
+                            string lastName = Console.ReadLine();
+                            addressBook.EditContact(firstName, lastName);
+                        }
+                        catch(InvalidContactException ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
                         break;
+
+                    case "4":
+                        {
+                            Console.WriteLine("Enter first name: ");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine("Enter last name: ");
+                            string lastName = Console.ReadLine();
+                            addressBook.DeleteContact(firstName, lastName);
+                        }
+                         break;
 
                     case "0":
                         return;
