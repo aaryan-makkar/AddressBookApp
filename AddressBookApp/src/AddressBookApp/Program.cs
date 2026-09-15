@@ -16,7 +16,8 @@ namespace AddressBookApp.src.AddressBookApp
             {
                 Console.WriteLine("--Address Book App");
                 Console.WriteLine("1. Add Contact");
-                Console.WriteLine("2. Show All COntacts.");
+                Console.WriteLine("2. Show All Contacts.");
+                Console.WriteLine("3. Edit Contact");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -71,6 +72,10 @@ namespace AddressBookApp.src.AddressBookApp
                         break;
                     case "2":
                         addressBook.PrintAll();
+                        break;
+
+                    case "3":
+                        addressBook.EditContact();
                         break;
 
                     case "0":
