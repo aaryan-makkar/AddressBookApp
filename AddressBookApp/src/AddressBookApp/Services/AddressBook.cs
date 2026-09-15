@@ -13,6 +13,12 @@ namespace AddressBookApp.Services
         public void AddContact(Contact c)
         {
             ContactValidator.Validate(c);
+            bool exists = Contacts.Any(contact => contact.FirstName == c.FirstName && contact.LastName == c.LastName);
+            if(exists)
+            {
+                Console.WriteLine($"Contact {c.FirstName} {c.LastName} already exists. Duplicate not added");
+                return;
+            }
             contacts.Add(c);
             Console.WriteLine("Contact added successfully");
         }
