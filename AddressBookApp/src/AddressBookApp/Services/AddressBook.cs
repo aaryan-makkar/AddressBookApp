@@ -134,6 +134,51 @@ namespace AddressBookApp.Services
                 Console.WriteLine(contact);
             }
         }
+
+        public void SortByCity()
+        {
+            if (Contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts found.");
+                return;
+            }
+
+            var sortedContacts = Contacts.OrderBy(c => c.City);
+            foreach(Contact contact in sortedContacts)
+            {
+                Console.WriteLine(contact);
+            }
+        }
+
+        public void SortByState()
+        {
+            if (Contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts found.");
+                return;
+            }
+
+            var sortedContacts = Contacts.OrderBy(c => c.State);
+            foreach (Contact contact in sortedContacts)
+            {
+                Console.WriteLine(contact);
+            }
+        }
+
+        public void SortByZip()
+        {
+            if (Contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts found.");
+                return;
+            }
+
+            var sortedContacts = Contacts.OrderBy(c => c.Zip);
+            foreach (Contact contact in sortedContacts)
+            {
+                Console.WriteLine(contact);
+            }
+        }
         public void PrintAll()
         {
             if (Contacts.Count == 0)
