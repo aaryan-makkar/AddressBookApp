@@ -18,10 +18,12 @@ namespace AddressBookApp.src.AddressBookApp
             {
                 Console.WriteLine("===== Address Book Menu =====");
                 Console.WriteLine("1. Add Contact");
-                Console.WriteLine("2. Show All Contacts.");
+                Console.WriteLine("2. Show All Contacts");
                 Console.WriteLine("3. Edit Contact");
                 Console.WriteLine("4. Delete Contact");
                 Console.WriteLine("5. Total Contact Count");
+                Console.WriteLine("6. Searh by City");
+                Console.WriteLine("7. Search by State");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -106,6 +108,21 @@ namespace AddressBookApp.src.AddressBookApp
                     case "5":
                         {
                             Console.WriteLine($"Total contacts in all address books: {manager.GetTotalContacts()}");
+                        }
+                        break;
+
+                    case "6":
+                        {
+                            Console.WriteLine("Enter city name: ");
+                            string city = Console.ReadLine();
+                            manager.SearchByCity(city);
+                        }
+                        break;
+                    case "7":
+                        {
+                            Console.WriteLine("Enter state name: ");
+                            string state = Console.ReadLine();
+                            manager.SearchByState(state);
                         }
                         break;
 
