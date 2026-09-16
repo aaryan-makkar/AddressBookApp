@@ -24,6 +24,7 @@ namespace AddressBookApp.src.AddressBookApp
                 Console.WriteLine("5. Total Contact Count");
                 Console.WriteLine("6. Searh by City");
                 Console.WriteLine("7. Search by State");
+                Console.WriteLine("8. View by City/State");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -123,6 +124,28 @@ namespace AddressBookApp.src.AddressBookApp
                             Console.WriteLine("Enter state name: ");
                             string state = Console.ReadLine();
                             manager.SearchByState(state);
+                        }
+                        break;
+
+                    case "8":
+                        {
+                            Console.WriteLine("1. View By City");
+                            Console.WriteLine("2. View By State");
+
+                            string selected = Console.ReadLine();
+
+                            if(selected == "1")
+                            {
+                                manager.ViewByCity();
+                            }
+                            else if(selected == "2")
+                            {
+                                manager.ViewByState();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid Choice");
+                            }
                         }
                         break;
 
