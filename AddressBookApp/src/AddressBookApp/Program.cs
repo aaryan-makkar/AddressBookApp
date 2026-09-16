@@ -22,10 +22,11 @@ namespace AddressBookApp.src.AddressBookApp
                 Console.WriteLine("3. Edit Contact");
                 Console.WriteLine("4. Delete Contact");
                 Console.WriteLine("5. Total Contact Count");
-                Console.WriteLine("6. Searh by City");
-                Console.WriteLine("7. Search by State");
-                Console.WriteLine("8. View by City/State");
+                Console.WriteLine("6. Search By City");
+                Console.WriteLine("7. Search By State");
+                Console.WriteLine("8. View By City/State");
                 Console.WriteLine("9. Count By City/State");
+                Console.WriteLine("10. Sort By Name");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -155,6 +156,11 @@ namespace AddressBookApp.src.AddressBookApp
                         }
                         break;
 
+                    case "10":
+                        {
+                            addressBook.SortByName();
+                        }
+                        break;
                     case "0":
                         return;
 

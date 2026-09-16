@@ -120,6 +120,20 @@ namespace AddressBookApp.Services
             Console.WriteLine("Contact deleted");
         }
         
+        public void SortByName()
+        {
+            if (Contacts.Count == 0)
+            {
+                Console.WriteLine("No contacts found.");
+                return;
+            }
+
+            var sortedContacts = Contacts.OrderBy(c => c.FirstName).ThenBy(c => c.LastName);
+            foreach(Contact contact in sortedContacts)
+            {
+                Console.WriteLine(contact);
+            }
+        }
         public void PrintAll()
         {
             if (Contacts.Count == 0)
