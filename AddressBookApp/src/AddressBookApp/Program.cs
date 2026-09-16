@@ -25,6 +25,7 @@ namespace AddressBookApp.src.AddressBookApp
                 Console.WriteLine("6. Searh by City");
                 Console.WriteLine("7. Search by State");
                 Console.WriteLine("8. View by City/State");
+                Console.WriteLine("9. Count By City/State");
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("Enter your choice: ");
 
@@ -146,6 +147,11 @@ namespace AddressBookApp.src.AddressBookApp
                             {
                                 Console.WriteLine("Invalid Choice");
                             }
+                        }
+                        break;
+                    case "9":
+                        {
+                            manager.CountByCityOrState();
                         }
                         break;
 
